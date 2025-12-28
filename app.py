@@ -29,7 +29,7 @@ final_value = scaler.transform([all_value])
 def model_run():
   
   model = st.RandomForestRegressor()
-  model.fit(X,y))
+  model.fit(X,y)
   return model
 model = model_run()
 house_price = model.predict(final_value)[0]
@@ -39,6 +39,7 @@ msg = f'''house price is: $ {round(house_price*100000,2)}'''
 st.success(msg)
 
 st.markdown('''**Design and Developed by: Ashvani shukla**''')
+
 
 
 
