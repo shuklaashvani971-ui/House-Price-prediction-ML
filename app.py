@@ -12,7 +12,7 @@ df = pd.read_csv('house_data.csv')
 X = df.iloc[:,:-3]
 y = df.iloc[:,-1]
 st.sidebar.title('🏘 Select House feature')
-st.image('https://cdn.dribbble.com/userupload/23217976/file/original-203940eb89dec42ee25f6af662af24dc.gif')
+st.image('https://blog.architizer.com/wp-content/uploads/Untitled-design.gif')
 all_value = []
 for i in X:
   min_value = int(X[i].min())
@@ -26,7 +26,7 @@ scaler = StandardScaler()
 scaled_X = scaler.fit_transform(X)
 final_value = scaler.transform([all_value])
 model = st.cache(RandomForestRegressor)()
-model.fit(X,y)
+st.cache(model.fit(X,y))
 house_price = model.predict(final_value)[0]
 with st.spinner('predicting House price'):
   time.sleep(1)
@@ -34,6 +34,7 @@ msg = f'''house price is: $ {round(house_price*100000,2)}'''
 st.success(msg)
 
 st.markdown('''**Design and Developed by: Ashvani shukla**''')
+
 
 
 
